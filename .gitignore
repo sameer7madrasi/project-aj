@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Output
+output/
+
+# PDF / input dumps
+input/*.pdf
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Env vars
+.env
