@@ -105,10 +105,9 @@ def ocr_page_with_openai(img: Image.Image) -> str:
                     {
                         "type": "input_text",
                         "text": (
-                            "This is a scanned handwritten diary page. "
-                            "Please transcribe the handwriting as accurately as possible "
-                            "into plain text. Preserve the original wording. "
-                            "Do not summarize or add commentary; just output the diary content."
+                            "Please transcribe all text in this image as accurately as possible "
+                            "into plain text. Preserve the original wording, formatting, and structure. "
+                            "Include all handwritten or printed text. Do not summarize or add commentary."
                         ),
                     },
                     {
@@ -148,9 +147,10 @@ def ocr_file_with_openai(file_path: str) -> str:
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python ocr_cloud.py input/YourFile.pdf")
-        print("       python ocr_cloud.py input/YourImage.jpg")
-        print("       python ocr_cloud.py input/YourImage.HEIC")
+        print("Usage: python ocr.py input/YourFile.pdf")
+        print("       python ocr.py input/YourImage.jpg")
+        print("       python ocr.py input/YourImage.HEIC")
+        print("\nOr use the helper script: ./ocr.sh input/YourFile.pdf")
         sys.exit(1)
 
     file_path = sys.argv[1]
@@ -158,7 +158,7 @@ def main():
         print("File not found:", file_path)
         sys.exit(1)
 
-    print(f"Running cloud OCR on: {file_path}")
+    print(f"Running OCR on: {file_path}")
     text = ocr_file_with_openai(file_path)
 
     # Save to output/
