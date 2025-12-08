@@ -105,9 +105,13 @@ def ocr_page_with_openai(img: Image.Image) -> str:
                     {
                         "type": "input_text",
                         "text": (
-                            "Please transcribe all text in this image as accurately as possible "
-                            "into plain text. Preserve the original wording, formatting, and structure. "
-                            "Include all handwritten or printed text. Do not summarize or add commentary."
+                            "This is a scanned handwritten diary page.\n\n" +
+              "Transcribe the handwriting as accurately as possible into plain text. " +
+              "Preserve the original wording and approximate line breaks.\n\n" +
+              "If any word or phrase is unclear or illegible, DO NOT guess. " +
+              'Instead, insert the token "<illegible>" in place of that word or phrase.\n\n' +
+              "Do not add commentary, explanations, or summaries. " +
+              "Only output the transcribed diary content."
                         ),
                     },
                     {
